@@ -29,7 +29,24 @@ export const postType = defineType({
     defineField({
       name: 'body',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [
+        {type: 'block'}, 
+        defineField({
+          type: 'code',
+          name: 'code',
+          title: 'Code Block',
+          options: {
+            language: 'python',
+            languageAlternatives: [
+              {title: 'Python', value: 'python'},
+              {title: 'C++', value: 'cpp'},
+              {title: 'JSON', value: 'json'},
+              {title: 'Bash', value: 'sh'},
+            ],
+            withLineNumbers: true, 
+          },
+        }),
+      ],
     }),
   ],
 })
